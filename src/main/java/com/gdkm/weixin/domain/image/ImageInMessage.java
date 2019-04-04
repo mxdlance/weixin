@@ -28,4 +28,11 @@ public class ImageInMessage extends InMessage {
 	public void setMediaId(String mediaId) {
 		this.mediaId = mediaId;
 	}
+
+	@Override
+	public String toString() {
+		return "ImageInMessage [imageUrl=" + imageUrl + ", mediaId=" + mediaId + ", getToUserName()=" + getToUserName()
+				+ ", getFromUserName()=" + getFromUserName() + ", getCreateTime()=" + getCreateTime()
+				+ ", getMsgType()=" + getMsgType() + ", getMsgId()=" + getMsgId() + "]";
+	}
 }

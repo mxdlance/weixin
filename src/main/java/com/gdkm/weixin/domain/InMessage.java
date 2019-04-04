@@ -13,24 +13,67 @@ public abstract class InMessage implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+
+	// Xml开头的注解都是JAXB的
 	@XmlElement(name = "ToUserName")
 	@JsonProperty("ToUserName")
 	private String toUserName;
-	
+
 	@XmlElement(name = "FromUserName")
 	@JsonProperty("FromUserName")
 	private String fromUserName;
-	
+
 	@XmlElement(name = "CreateTime")
-	@JsonProperty("CreateTime")	
+	@JsonProperty("CreateTime")
 	private long createTime;
-	
+
 	@XmlElement(name = "MsgType")
 	@JsonProperty("MsgType")
 	private String msgType;
-	
+
 	@XmlElement(name = "MsgId")
 	@JsonProperty("MsgId")
-	private String msgId;
+	private Long msgId;
+
+	public String getToUserName() {
+		return toUserName;
+	}
+
+	public void setToUserName(String toUserName) {
+		this.toUserName = toUserName;
+	}
+
+	public String getFromUserName() {
+		return fromUserName;
+	}
+
+	public void setFromUserName(String fromUserName) {
+		this.fromUserName = fromUserName;
+	}
+
+	public long getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(long createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getMsgType() {
+		return msgType;
+	}
+
+	public void setMsgType(String msgType) {
+		this.msgType = msgType;
+	}
+
+	public Long getMsgId() {
+		return msgId;
+	}
+
+	public void setMsgId(Long msgId) {
+		this.msgId = msgId;
+	}
 	
+	abstract public String toString();
 }
