@@ -9,7 +9,6 @@ public class TextInMessage extends InMessage {
 
 	private static final long serialVersionUID = 1L;
 
-	@XmlElement(name = "Content")
 	@JsonProperty("Content")
 	private String content;
 

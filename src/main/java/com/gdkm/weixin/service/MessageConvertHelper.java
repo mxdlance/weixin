@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.xml.bind.JAXB;
 
 import com.gdkm.weixin.domain.InMessage;
+import com.gdkm.weixin.domain.event.EventInMessage;
 import com.gdkm.weixin.domain.image.ImageInMessage;
 import com.gdkm.weixin.domain.text.TextInMessage;
 
@@ -15,6 +16,7 @@ public class MessageConvertHelper {
 	private static final Map<String, Class<? extends InMessage>> typeMap = new ConcurrentHashMap<>();
 
 	static {
+		typeMap.put("event", EventInMessage.class);
 		typeMap.put("text", TextInMessage.class);
 		typeMap.put("image", ImageInMessage.class);
 	}
