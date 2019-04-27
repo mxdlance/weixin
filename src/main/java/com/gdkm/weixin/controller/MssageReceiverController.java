@@ -62,7 +62,7 @@ public class MssageReceiverController {
 		// 收到消息
 		// {}是占位符，第一个{}会把第二个参数的值自动填入
 		// LOG.trace必须要求日志记录器的配置为trace级别才能输出
-		
+		LOG.trace("收到的消息原文：\n{}\n------------------------------", xml);
 		// 转换消息
 		InMessage inMessage = convert(xml);
 
@@ -71,7 +71,7 @@ public class MssageReceiverController {
 			// 消息无法转换
 			return "success";
 		}
-		LOG.trace("收到的消息原文：\n{}\n------------------------------", xml);
+		
 		LOG.debug("转换后的消息对象\n{}\n", inMessage);
 		
 
@@ -80,14 +80,15 @@ public class MssageReceiverController {
 		// 把消息丢入队列
 		
 		//1
-		ByteArrayOutputStream bos =new ByteArrayOutputStream();
-		ObjectOutputStream out =new ObjectOutputStream(bos);
-		out.writeObject(inMessage);
-		byte[] data =bos.toByteArray();//序列化之后的字节数组
+//		ByteArrayOutputStream bos =new ByteArrayOutputStream();
+//		ObjectOutputStream out =new ObjectOutputStream(bos);
+//		out.writeObject(inMessage);
+//		byte[] data =bos.toByteArray();
+		//序列化之后的字节数组
 		//2
 
 		// 直接把对象发送出去，调用ValueSerializer来实现对象的序列化和反序列
-		String channel="weixin_"+inMessage.getClass();
+		String channel="weixin_"+inMessage.getMsgType();
 		inMessageTemplate.convertAndSend(channel, inMessage);
 		
 		

@@ -94,6 +94,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration><!-- 可以打包成一个可执行jar -->
+					<executable>true</executable>
+					<fork>true</fork>
+					<jmxPort>10000</jmxPort>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
